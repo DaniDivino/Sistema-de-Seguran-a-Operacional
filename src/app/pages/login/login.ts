@@ -1,12 +1,56 @@
-import { Component } from '@angular/core';
-import { Cards } from '../../core/components/cards/cards';
+import { CommonModule } from '@angular/common';
+import { Component, computed, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Titulo } from '../../core/components/titulo/titulo';
+
+import { Router } from '@angular/router';
+import { Auth } from '../../core/services/auth/auth';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [Cards, Titulo],
+  imports: [CommonModule, FormsModule, Titulo],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrl: './login.css',
 })
-export class LoginComponent {}
+export class Login {
+
+  authService = inject(Auth);
+  router = inject(Router)
+
+  isLoading: boolean = false;
+  formSubmit = signal<boolean>(false);
+
+  password = signal<string>("");
+  email = signal<string>("");
+
+  emailInvalid = computed(() => {
+    return this.email() === ""
+  })
+
+  passwordInvalid = computed(() => {
+    return this.password() === ""
+  })
+
+  errorMessage = computed(() => {
+    return this.passwordInvalid() || this.emailInvalid() ? "" : " Usuário Invalid "
+  })
+
+  onSubmit() {
+    if (!this.emailInvalid() && !this.passwordInvalid()) {
+      let result = this.authService.autenticar(this.email(), this.password());
+        console.log("Belezinha")
+      if (result) {
+        this.formSubmit.set(false)
+        this.router.navigate(['/administrador'])
+      }
+
+      this.email.set("");
+      this.password.set("");
+      this.formSubmit.set(true);
+
+    }
+    this.formSubmit.set(true);
+
+  }
+
+}
