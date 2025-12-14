@@ -38,19 +38,16 @@ export class Login {
   onSubmit() {
     if (!this.emailInvalid() && !this.passwordInvalid()) {
       let result = this.authService.autenticar(this.email(), this.password());
-        console.log("Belezinha")
+      
       if (result) {
-        this.formSubmit.set(false)
-        this.router.navigate(['/administrador'])
+        this.formSubmit.set(false);
+        this.router.navigate(['/home']);
+      } else {
+        this.formSubmit.set(true);
       }
-
-      this.email.set("");
-      this.password.set("");
+    } else {
       this.formSubmit.set(true);
-
     }
-    this.formSubmit.set(true);
-
   }
 
 }
