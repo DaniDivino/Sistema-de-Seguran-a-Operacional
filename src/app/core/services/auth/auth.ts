@@ -45,7 +45,7 @@ export class Auth {
 
   autenticar (email: string, senha: string): boolean {
     // chama comunicação com api externa
-    let user = this.usuarios.find((user) => user.email === email);
+    let user = this.usuarios.find(u => u.email === email);
     if (!user || user.senha !== senha) {
       return false;
     }

@@ -12,4 +12,5 @@ import { Titulo } from './core/components/titulo/titulo';
 })
 export class App {
   protected readonly title = signal('sigo');
+
 }

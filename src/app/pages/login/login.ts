@@ -32,7 +32,7 @@ export class Login {
   })
 
   errorMessage = computed(() => {
-    return this.passwordInvalid() || this.emailInvalid() ? "" : " Usuário Invalid "
+    return this.passwordInvalid() || this.emailInvalid() ? "" : " Usuário Invalido "
   })
 
   onSubmit() {

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Auth } from '../../../app/core/services/auth/auth';
 
 @Component({
   selector: 'app-usuario',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
   templateUrl: './usuario.html',
   styleUrl: './usuario.css'
 })
-export class UsuarioComponent {}
+export class UsuarioComponent {
+    auth = inject(Auth);
+
+  
+get perfilUsuario() {
+    return this.auth.userAuth()?.perfil;
+  }
+}
