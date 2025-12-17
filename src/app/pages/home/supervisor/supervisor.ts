@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { inject } from '@angular/core';
-import { Auth } from '../../../app/core/services/auth/auth';
+import { Auth } from '../../../core/services/auth/auth';
 
 @Component({
   selector: 'app-supervisor',
