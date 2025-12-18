@@ -14,14 +14,22 @@ export class Auth {
   //string, number, boolean
   private usuarios: User[] = [
     {
-      email: 'l@.com',
-      nome: 'l',
-      senha: '12345'
+      email: 'administrador@exemplo.com',
+      nome: 'Admin',
+      senha: '12345',
+      perfil: 'administrador'
     },
     {
-      email: 'maria@exemplo.com',
+      email: 'supervisor@exemplo.com',
       nome: 'Maria Silva',
-      senha: 'senha123'
+      senha: '12345',
+      perfil: 'supervisor'
+    },
+    {
+      email: 'usuario@exemplo.com',
+      nome: 'Usuário Comum',
+      senha: '12345',
+      perfil: 'usuario'
     }
   // ctrl + (espaço). para autocompletar 
   ];
@@ -37,7 +45,7 @@ export class Auth {
 
   autenticar (email: string, senha: string): boolean {
     // chama comunicação com api externa
-    let user = this.usuarios.find((user) => user.email === email);
+    let user = this.usuarios.find(u => u.email === email);
     if (!user || user.senha !== senha) {
       return false;
     }

@@ -1,5 +1,6 @@
 export interface User {
     email: string;
     nome: string;
-    senha: string;   
+    senha: string;
+    perfil: 'administrador' | 'supervisor' | 'usuario';
 }

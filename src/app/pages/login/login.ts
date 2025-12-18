@@ -32,25 +32,32 @@ export class Login {
   })
 
   errorMessage = computed(() => {
-    return this.passwordInvalid() || this.emailInvalid() ? "" : " Usuário Invalid "
+    return this.passwordInvalid() || this.emailInvalid() ? "" : " Usuário Invalido "
   })
+
+  get perfilUsuario() {
+    return this.authService.userAuth()?.perfil;
+  }
 
   onSubmit() {
     if (!this.emailInvalid() && !this.passwordInvalid()) {
       let result = this.authService.autenticar(this.email(), this.password());
-        console.log("Belezinha")
-      if (result) {
-        this.formSubmit.set(false)
-        this.router.navigate(['/administrador'])
+      
+      if (result && this.perfilUsuario === 'administrador') {
+        this.formSubmit.set(false);
+        this.router.navigate(['/home/administrador']);
+      } else if (result && this.perfilUsuario === 'supervisor') {
+        this.formSubmit.set(false);
+        this.router.navigate(['/home/supervisor']);
+      } else if (result && this.perfilUsuario === 'usuario') {
+        this.formSubmit.set(false);
+        this.router.navigate(['/home/usuario']);
+      } else {
+        this.formSubmit.set(true);
       }
-
-      this.email.set("");
-      this.password.set("");
+    } else {
       this.formSubmit.set(true);
-
     }
-    this.formSubmit.set(true);
-
   }
 
 }
