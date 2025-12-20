@@ -1,5 +1,4 @@
-import { Injectable, signal } from '@angular/core';
-
+import { Injectable, signal, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataAuth, Usuario} from '../../../pages/models/Usuario';
 import { User } from '../../../shared/models/user';
@@ -11,6 +10,8 @@ const USER_STORAGE_KEY = 'currentUserAuth';
   providedIn: 'root',
 })
 export class Auth {
+  private router = inject(Router);
+  
   //string, number, boolean
   private usuarios: User[] = [
     {
@@ -52,6 +53,10 @@ export class Auth {
     this.userAuth.set(user);
     this.isauthenticated.set(true);
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
+    
+    // Redireciona para a home do perfil do usuário
+    this.router.navigate(['/home', user.perfil]);
+    
     return true;
   }
   

@@ -43,15 +43,9 @@ export class Login {
     if (!this.emailInvalid() && !this.passwordInvalid()) {
       let result = this.authService.autenticar(this.email(), this.password());
       
-      if (result && this.perfilUsuario === 'administrador') {
+      if (result) {
         this.formSubmit.set(false);
-        this.router.navigate(['/home/administrador']);
-      } else if (result && this.perfilUsuario === 'supervisor') {
-        this.formSubmit.set(false);
-        this.router.navigate(['/home/supervisor']);
-      } else if (result && this.perfilUsuario === 'usuario') {
-        this.formSubmit.set(false);
-        this.router.navigate(['/home/usuario']);
+        // O redirecionamento é feito automaticamente pelo Auth service
       } else {
         this.formSubmit.set(true);
       }
