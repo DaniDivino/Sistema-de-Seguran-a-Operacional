@@ -59,5 +59,18 @@ export class Auth {
     
     return true;
   }
+
+  logout(): void {
+  // limpa o estado
+  this.userAuth.set(null);
+  this.isauthenticated.set(false);
+
+  // limpa o storage
+  localStorage.removeItem(USER_STORAGE_KEY);
+
+  // volta para o início
+  this.router.navigate(['/']);
+}
+
   
 }

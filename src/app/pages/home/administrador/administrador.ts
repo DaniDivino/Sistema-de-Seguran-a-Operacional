@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Auth } from '../../../core/services/auth/auth';
 
+
 @Component({
   selector: 'app-administrador',
   standalone: true,

@@ -17,4 +17,11 @@ export class Header {
   get perfilUsuario() {
     return this.auth.userAuth()?.perfil || '';
   }
+
+logout() {
+  this.auth.logout();
+}
+
+  
+
 }

@@ -1,73 +1,104 @@
 <div class="container mx-auto p-8">
-  <div class="p-6">
-    <div class="p-6">
-      <h1 class="text-3xl font-bold text-gray-800 mb-2">Dashboard Administrador</h1>
-      <p class="text-gray-600 mb-6">Bem-vindo ao painel administrativo</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card Gestão de Usuários -->
-        <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer border-t-4 border-blue-500">
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-4">
-              <div class="bg-blue-100 p-3 rounded-full">
-                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Usuários</h3>
-            <p class="text-gray-600 text-sm">Gerenciar usuários, permissões e acessos do sistema</p>
-          </div>
-        </div>
+  <!-- Título -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-black mb-2">Dashboard Administrador</h1>
+    <p class="text-black text-sm">
+      Gerencie usuários, inventário e acompanhe o funcionamento do sistema SIGO
+    </p>
+  </div>
 
-        <!-- Card Gestão de Inventários -->
-        <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer border-t-4 border-green-500">
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-4">
-              <div class="bg-green-100 p-3 rounded-full">
-                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Inventários</h3>
-            <p class="text-gray-600 text-sm">Controlar equipamentos, materiais e recursos</p>
-          </div>
-        </div>
+  <!-- AÇÕES RÁPIDAS -->
+  <div class="mb-10">
+    <h2 class="text-lg font-semibold text-gray-800 mb-4">Ações rápidas</h2>
 
-        <!-- Card Dashboards -->
-        <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer border-t-4 border-purple-500">
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-4">
-              <div class="bg-purple-100 p-3 rounded-full">
-                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Dashboards</h3>
-            <p class="text-gray-600 text-sm">Visualizar relatórios, gráficos e métricas do sistema</p>
-          </div>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <button class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg shadow">
+        ➕ Novo Usuário
+      </button>
 
-      <!-- Estatísticas Rápidas -->
-      <div class="mt-8">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4">Estatísticas Rápidas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <p class="text-sm text-blue-600 font-medium">Total de Usuários</p>
-            <p class="text-3xl font-bold text-blue-700">150</p>
-          </div>
-          <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-            <p class="text-sm text-green-600 font-medium">Itens no Inventário</p>
-            <p class="text-3xl font-bold text-green-700">1,234</p>
-          </div>
-          <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-            <p class="text-sm text-red-600 font-medium">Alertas Pendentes</p>
-            <p class="text-3xl font-bold text-red-700">3</p>
-          </div>
-        </div>
+      <button class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-lg shadow">
+        ➕ Nova Máquina
+      </button>
+
+      <button class="bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-lg shadow">
+        📦 Novo Item
+      </button>
+
+      <button class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-lg shadow">
+        ⚠️ Ver Alertas
+      </button>
+    </div>
+  </div>
+
+  <!-- CARDS DE GESTÃO -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+    <!-- Usuários -->
+    <div class="bg-white rounded-lg shadow-lg border-t-4 border-blue-500 cursor-pointer hover:shadow-xl">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Gestão de Usuários
+        </h3>
+        <p class="text-gray-600 text-sm mb-4">
+          Criar, editar, desativar usuários e definir permissões
+        </p>
+        <span class="text-blue-600 font-medium text-sm">
+          Acessar gerenciamento →
+        </span>
       </div>
     </div>
+
+    <!-- Inventário -->
+    <div class="bg-white rounded-lg shadow-lg border-t-4 border-green-500 cursor-pointer hover:shadow-xl">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Gestão de Inventário
+        </h3>
+        <p class="text-gray-600 text-sm mb-4">
+          Máquinas, equipamentos, status e histórico
+        </p>
+        <span class="text-green-600 font-medium text-sm">
+          Acessar inventário →
+        </span>
+      </div>
+    </div>
+
+    <!-- Relatórios -->
+    <div class="bg-white rounded-lg shadow-lg border-t-4 border-purple-500 cursor-pointer hover:shadow-xl">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Relatórios e Métricas
+        </h3>
+        <p class="text-gray-600 text-sm mb-4">
+          Visualizar dados, gráficos e desempenho do sistema
+        </p>
+        <span class="text-purple-600 font-medium text-sm">
+          Ver dashboards →
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTATÍSTICAS -->
+  <div>
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">
+      Visão geral do sistema
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-blue-200 p-5 rounded-lg border border-blue-200">
+        <p class="text-sm text-blue-600 font-medium">Usuários ativos</p>
+        <p class="text-3xl font-bold text-blue-700">150</p>
+      </div>
+
+      <div class="bg-green-200 p-5 rounded-lg border border-green-200">
+        <p class="text-sm text-green-600 font-medium">Itens cadastrados</p>
+        <p class="text-3xl font-bold text-green-700">1.234</p>
+      </div>
+
+      <div class="bg-red-200 p-5 rounded-lg border border-red-200">
+        <p class="text-sm text-red-600 font-medium">Alertas pendentes</p>
+        <p class="text-3xl font-bold text-red-700">3</p>
+      </div>
+    </div>
+  </div>
 </div>
